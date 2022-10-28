@@ -1,5 +1,7 @@
 <div>
     {{-- Care about people's approval and you will be their prisoner. --}}
-    {{$post->id}}
-    {{$post->title}}
+    <div>{{$post->id}}</div>
+    <div>{{$post->title}}</div>
+    <div>{{$post->user->name}}</div>
+    <div>{{$post->content}}</div>
 </div>
