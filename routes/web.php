@@ -22,5 +22,5 @@ Route::get('/', function () {
 Route::get('/counter', Counter::class);
 
 Route::prefix('/post')->group(function () {
-    Route::get('/show', App\Http\Livewire\Post\Show::class);
+    Route::get('/show/{post}', App\Http\Livewire\Post\Show::class);
 });
