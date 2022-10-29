@@ -1,4 +1,4 @@
-<html>
+<html data-theme="light">
 <head>
     <title>Laravel Livewire Demo</title>
     <meta charset="utf-8">

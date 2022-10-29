@@ -7,6 +7,7 @@
             <li><a>Item 2</a></li>
         </ul>
     </div>
+    <button class="btn">Button</button>
     <div class="p-5">
         @foreach($posts as $post)
             @include('livewire.post.show', ['post' => $post])
