@@ -4,6 +4,6 @@
         @foreach($posts as $post)
             @include('livewire.post.show', ['post' => $post])
         @endforeach
-            {{ $posts->links() }}
+        {{ $posts->links() }}
     </div>
 </div>
