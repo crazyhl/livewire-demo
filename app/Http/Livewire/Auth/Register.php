@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\User;
+use DragonCode\Support\Concerns\Makeable;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Component;
 
@@ -16,17 +18,32 @@ class Register extends Component
     protected function rules()
     {
         return [
-            'name' => 'required|min:6|unique:user',
-            'email' => 'required|email|unique:user',
+            'name' => 'required|min:6|unique:users',
+            'email' => 'required|email|unique:users',
             'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->symbols()],
             'password_confirmation' => 'required',
         ];
     }
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+        // 如果输入的是密码字段，需要跟验证字段同时验证
+        if (in_array($propertyName, ['password', 'password_confirmation'])) {
+            $this->validateOnly('password_confirmation');
+            $this->validateOnly('password');
+        }
+    }
+
     public function register() {
         $this->validate();
 
-        dd('验证通过');
+        $res = User::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => \Hash::make($this->password),
+        ]);
+        dd($res);
     }
 
     public function render()
