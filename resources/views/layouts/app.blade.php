@@ -7,7 +7,7 @@
     @livewireStyles
 </head>
 <body>
-    <div class="font-mono container">
+    <div class="font-mono">
     {{ $slot }}
     </div>
     @livewireScripts
