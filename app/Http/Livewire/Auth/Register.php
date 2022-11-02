@@ -38,12 +38,15 @@ class Register extends Component
     public function register() {
         $this->validate();
 
-        $res = User::create([
+        $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => \Hash::make($this->password),
         ]);
-        dd($res);
+//        dd($res);
+        \Auth::login($user, true);
+        return redirect()->intended('/post/show');
+
     }
 
     public function render()

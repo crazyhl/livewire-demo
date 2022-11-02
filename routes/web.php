@@ -21,9 +21,10 @@ Route::get('/', function () {
 
 Route::get('/counter', Counter::class);
 
-Route::get('/register', \App\Http\Livewire\Auth\Register::class);
+Route::get('/register', \App\Http\Livewire\Auth\Register::class)->name('register');
+Route::get('/login', \App\Http\Livewire\Auth\Login::class)->name('login');
 
-Route::prefix('/post')->group(function () {
-    Route::get('/show', App\Http\Livewire\Post\Pagination::class);
+Route::prefix('/post')->middleware('auth')->group(function () {
+    Route::get('/show', App\Http\Livewire\Post\Pagination::class)->name('postList');
     Route::get('/show/{post}', App\Http\Livewire\Post\Show::class);
 });

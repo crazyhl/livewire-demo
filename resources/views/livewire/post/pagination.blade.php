@@ -1,5 +1,8 @@
 <div>
     {{-- In work, do what you enjoy. --}}
+    <div>
+        <livewire:auth.logout />
+    </div>
     <div class="p-5">
         @foreach($posts as $post)
             @include('livewire.post.show', ['post' => $post])

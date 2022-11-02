@@ -1,4 +1,5 @@
-<div class="h-screen w-screen flex justify-center items-center" style="background-image: url('/static/img/scattered-forcefields.svg')">
+<div class="h-screen w-screen flex justify-center items-center"
+     style="background-image: url({{asset('/static/img/scattered-forcefields.svg')}})">
     <div class="inline-block w-80">
         <div class="text-2xl text-center">注册</div>
         {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
@@ -47,7 +48,8 @@
                 </label>
                 @enderror
             </div>
-            <div class="flex justify-end">
+            <div class="flex justify-between mt-4">
+                <a class="btn btn-link " href="{{ route('login') }}">已有账号去登录</a>
                 <button class="btn">注册</button>
             </div>
         </form>
